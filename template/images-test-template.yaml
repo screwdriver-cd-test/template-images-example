@@ -1,0 +1,13 @@
+name: images-test
+namespace: screwdriver-examples
+version: '1'
+description: Test template for multiple images
+maintainer: jithin1987@gmail.com
+images:
+  node-8: node:8
+  node-9: node:9
+  node-10: node:10
+config:
+  image: node-8
+  steps:
+    - version: node -v

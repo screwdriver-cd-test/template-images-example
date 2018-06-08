@@ -1,0 +1,26 @@
+jobs:
+  publish-template:
+    requires: [~commit, ~pr]
+    sourcePaths: ["template/"]
+    environment:
+      SD_TEMPLATE_PATH: ./template/images-test-template.yaml
+    steps:
+      - install_prerequisites: npm install -g screwdriver-template-main
+      - validate: template-validate
+      - publish: template-publish
+      - autotag: template-tag --name screwdriver-examples/images-test --version `meta get template.template_publish.version` --tag latest
+  node8:
+    requires: [~commit, ~pr]
+    template: screwdriver-examples/images-test
+    image: node-8
+  node9:
+    requires: [~commit, ~pr]
+    template: screwdriver-examples/images-test
+    image: node-9
+  node10:
+    requires: [~commit, ~pr]
+    template: screwdriver-examples/images-test
+    image: node-10
+  default-node:
+    requires: [~commit, ~pr]
+    template: screwdriver-examples/images-test
