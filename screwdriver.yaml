@@ -4,6 +4,7 @@ jobs:
     # here
     requires: [~commit, ~pr]
     sourcePaths: ["template/"]
+    image: node:8
     environment:
       SD_TEMPLATE_PATH: ./template/images-test-template.yaml
     steps:
