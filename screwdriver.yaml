@@ -11,7 +11,7 @@ jobs:
       - install_prerequisites: npm install -g screwdriver-template-main
       - validate: template-validate
       - publish: template-publish
-      - autotag: template-tag --name screwdriver-examples/images-example --version `meta get template.template_publish.version` --tag latest
+      - autotag: template-tag --name screwdriver-examples/images-example --tag latest
   # node8:
     # requires: [~commit, ~pr]
     # template: screwdriver-examples/images-test
