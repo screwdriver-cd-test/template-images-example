@@ -12,18 +12,18 @@ jobs:
       - validate: template-validate
       - publish: template-publish
       - autotag: template-tag --name screwdriver-examples/images-example --tag latest
-  # node8:
-    # requires: [~commit, ~pr]
-    # template: screwdriver-examples/images-test
-    # image: node-8
-  # node9:
-    # requires: [~commit, ~pr]
-    # template: screwdriver-examples/images-test
-    # image: node-9
-  # node10:
-    # requires: [~commit, ~pr]
-    # template: screwdriver-examples/images-test
-    # image: node-10
-  # default-node:
-    # requires: [~commit, ~pr]
-    # template: screwdriver-examples/images-test
+  node8:
+    requires: [~commit, ~pr]
+    template: screwdriver-examples/images-example
+    image: node-8
+  node9:
+    requires: [~commit, ~pr]
+    template: screwdriver-examples/images-example
+    image: node-9
+  node10:
+    requires: [~commit, ~pr]
+    template: screwdriver-examples/images-example
+    image: node-10
+  default-node:
+    requires: [~commit, ~pr]
+    template: screwdriver-examples/images-example
