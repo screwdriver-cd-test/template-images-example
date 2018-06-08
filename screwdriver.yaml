@@ -1,7 +1,10 @@
 jobs:
   publish-template:
+    # This template should exist for rest of jobs to work. Taking a shortcut
+    # here
     requires: [~commit, ~pr]
     sourcePaths: ["template/"]
+    image: node:8
     environment:
       SD_TEMPLATE_PATH: ./template/images-test-template.yaml
     steps:
@@ -9,18 +12,18 @@ jobs:
       - validate: template-validate
       - publish: template-publish
       - autotag: template-tag --name screwdriver-examples/images-test --version `meta get template.template_publish.version` --tag latest
-  node8:
-    requires: [~commit, ~pr]
-    template: screwdriver-examples/images-test
-    image: node-8
-  node9:
-    requires: [~commit, ~pr]
-    template: screwdriver-examples/images-test
-    image: node-9
-  node10:
-    requires: [~commit, ~pr]
-    template: screwdriver-examples/images-test
-    image: node-10
-  default-node:
-    requires: [~commit, ~pr]
-    template: screwdriver-examples/images-test
+  # node8:
+    # requires: [~commit, ~pr]
+    # template: screwdriver-examples/images-test
+    # image: node-8
+  # node9:
+    # requires: [~commit, ~pr]
+    # template: screwdriver-examples/images-test
+    # image: node-9
+  # node10:
+    # requires: [~commit, ~pr]
+    # template: screwdriver-examples/images-test
+    # image: node-10
+  # default-node:
+    # requires: [~commit, ~pr]
+    # template: screwdriver-examples/images-test
