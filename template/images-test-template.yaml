@@ -1,4 +1,4 @@
-name: images-test
+name: images-example
 namespace: screwdriver-examples
 version: '1'
 description: Test template for multiple images
